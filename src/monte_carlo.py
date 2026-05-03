@@ -34,7 +34,6 @@ def run_monte_carlo(trials=1000, sigma=0.05, seed=42):
 
     return np.array(attacker_results), np.array(defender_results), stable_count / trials
 
-
 def plot_monte_carlo(attacker_results):
     plt.figure(figsize=(7, 4))
     plt.hist(attacker_results, bins=40, density=True, alpha=0.75)
@@ -47,6 +46,18 @@ def plot_monte_carlo(attacker_results):
     plt.savefig(os.path.join(FIGURES_DIR, "montecarlo.png"), dpi=300)
 
 
+def plot_defender_monte_carlo(defender_results):
+    plt.figure(figsize=(7, 4))
+    plt.hist(defender_results, bins=40, density=True, alpha=0.75)
+    plt.axvline(35, linestyle="--", linewidth=2, label="Theoretical PF-HD payoff")
+    plt.xlabel("Defender Payoff (SVU)")
+    plt.ylabel("Probability Density")
+    plt.title("Monte Carlo Distribution of Defender Payoff")
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig(os.path.join(FIGURES_DIR, "defender_montecarlo.png"), dpi=300)
+
+
 if __name__ == "__main__":
     attacker, defender, stability = run_monte_carlo()
 
@@ -57,3 +68,4 @@ if __name__ == "__main__":
     print(f"PF-HD stability rate: {stability * 100:.2f}%")
 
     plot_monte_carlo(attacker)
+    plot_defender_monte_carlo(defender)         
