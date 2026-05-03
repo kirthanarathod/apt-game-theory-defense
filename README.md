@@ -26,7 +26,25 @@ The work combines game theory, cybersecurity economics, and simulation to evalua
 - Robust performance under ±20% uncertainty in cost assumptions
 
  Project Structure
-apt-game-theory-defense/ │ ├── README.md ├── requirements.txt ├── paper/ │   └── main.pdf │ ├── src/ │   ├── payoff_matrices.py │   ├── nash_solver.py │   ├── monte_carlo.py │   ├── sensitivity_analysis.py │   ├── ablation_study.py │ ├── figures/ │   ├── montecarlo.png │   ├── defender_montecarlo.png │   ├── sensitivity.png │   ├── ablation_honeypot_cost.png
+apt-game-theory-defense/
+│
+├── README.md
+├── requirements.txt
+├── paper/
+│   └── main.pdf
+│
+├── src/
+│   ├── payoff_matrices.py
+│   ├── nash_solver.py
+│   ├── monte_carlo.py
+│   ├── sensitivity_analysis.py
+│   ├── ablation_study.py
+│
+├── figures/
+│   ├── montecarlo.png
+│   ├── defender_montecarlo.png
+│   ├── sensitivity.png
+│   ├── ablation_honeypot_cost.png
 
  How to Run
 
@@ -34,7 +52,10 @@ Install dependencies:
 bash pip install -r requirements.txt 
 
 Run experiments:
-bash python src/nash_solver.py python src/monte_carlo.py python src/sensitivity_analysis.py python src/ablation_study.py 
+python src/nash_solver.py
+python src/monte_carlo.py
+python src/sensitivity_analysis.py
+python src/ablation_study.py
 
  Visual Results
  Monte Carlo Distribution
